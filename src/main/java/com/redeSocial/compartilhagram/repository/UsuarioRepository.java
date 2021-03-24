@@ -1,11 +1,12 @@
-package com.compartilhagram.redesocial.repository;
+package com.redeSocial.compartilhagram.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.compartilhagram.redesocial.model.Usuario;
+import com.redeSocial.compartilhagram.model.Usuario;
+
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
