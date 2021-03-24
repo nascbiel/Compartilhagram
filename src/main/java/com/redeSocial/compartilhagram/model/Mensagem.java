@@ -9,28 +9,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.sun.istack.NotNull;
 
 @Entity
-@Table(name = "Postagem")
-public class Postagem {
-	
+@Table(name = "mensagem")
+public class Mensagem {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Size(min = 1, max = 100)
-	private String imagem;
-	
 	@NotNull
-	@Size(min = 1 , max = 80)
-	private String texto;
+	@Size(min = 1, max = 1000)
+	private String mensagem;
+	
+	private String foto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date date;
+	private Date data = new java.sql.Date(System.currentTimeMillis());
 
+	
 	public long getId() {
 		return id;
 	}
@@ -39,30 +39,30 @@ public class Postagem {
 		this.id = id;
 	}
 
-	public String getTexto() {
-		return texto;
+	public String getMensagem() {
+		return mensagem;
 	}
 
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	};
+		
 	
-	public String getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
-	}
 	
-	
-
 }
