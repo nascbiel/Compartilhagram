@@ -1,4 +1,4 @@
-package com.compartilhagram.redesocial.model;
+package com.redeSocial.compartilhagram.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
