@@ -1,4 +1,5 @@
-package com.redeSocial.compartilhagram.seguranca;
+package com.redeSocial.compartilhagram.security;
+
 
 import java.util.Collection;
 
@@ -12,7 +13,7 @@ public class UserDetailsImpl implements UserDetails{
 
 	private static final long SerialVersionUID = 1L;
 	
-	private String userName;
+	private String email;
 	
 	private String password;
 	
@@ -22,7 +23,7 @@ public class UserDetailsImpl implements UserDetails{
 
 	public UserDetailsImpl(Usuario user) {
 		super();
-		this.userName = user.getEmail();
+		this.email = user.getEmail();
 		this.password = user.getSenha();
 	}
 	
@@ -43,7 +44,7 @@ public class UserDetailsImpl implements UserDetails{
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return userName;
+		return email;
 	}
 
 	@Override

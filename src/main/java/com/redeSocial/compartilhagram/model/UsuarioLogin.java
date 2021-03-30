@@ -2,6 +2,8 @@ package com.redeSocial.compartilhagram.model;
 
 public class UsuarioLogin {
 
+	private long id;
+	
 	private String nome;
 	
 	private String email;
@@ -42,6 +44,15 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	
 	
 }
