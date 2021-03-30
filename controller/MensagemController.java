@@ -15,24 +15,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.redeSocial.compartilhagram.model.Postagem;
-import com.redeSocial.compartilhagram.repository.PostagemRepository;
+import com.redeSocial.compartilhagram.model.Mensagem;
+import com.redeSocial.compartilhagram.repository.MensagemRepository;
 
-@RestController	
-@RequestMapping("/postagens")
+@RestController
+@RequestMapping("/mensagem")
 @CrossOrigin("*")
-public class PostagemController {
-
+public class MensagemController {
+	
 	@Autowired
-	private PostagemRepository repository;
+	private MensagemRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Postagem>> GetAll(){
+	public ResponseEntity<List<Mensagem>> GetAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> GetById(@PathVariable long id)
+	public ResponseEntity<Mensagem> GetById(@PathVariable long id)
 	{
 			return repository.findById(id)
 			.map(resp -> ResponseEntity.ok(resp))
@@ -40,18 +40,18 @@ public class PostagemController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Postagem> post (@RequestBody Postagem postagem){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
+	public ResponseEntity<Mensagem> post (@RequestBody Mensagem mensagem){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(mensagem));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Postagem> put (@RequestBody Postagem postagem){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
+	public ResponseEntity<Mensagem> put (@RequestBody Mensagem mensagem){
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(mensagem));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id); 
 	}
-	
+
 }
