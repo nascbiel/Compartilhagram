@@ -9,10 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.sun.istack.NotNull;
+
 
 @Entity
 @Table(name = "tb_usuario")
@@ -23,15 +24,15 @@ public class Usuario {
 	private long id;
 	
 	@NotNull
-	@Size(min=3, max=50)
+	@Size(min = 3, max = 100)
 	private String nome;
 	
 	@NotNull
-	@Size(min=11, max=50)
+	@Size(min = 11, max=100)
 	private String email;
 	
 	@NotNull
-	@Size(min=6, max=50)
+	@Size(min = 6, max = 100)
 	private String senha;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
