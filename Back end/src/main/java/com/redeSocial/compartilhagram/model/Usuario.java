@@ -19,67 +19,67 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "tb_usuario")
 public class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    
-    @NotNull
-    @Size(min = 2, max = 100)
-    private String nome;
-    
-    @NotNull
-    @Size(min = 2, max=100)
-    private String email;
-    
-    @NotNull
-    @Size(min = 6, max = 100)
-    private String senha;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@NotNull
+	@Size(min = 3, max = 100)
+	private String nome;
+	
+	@NotNull
+	@Size(min = 11, max=100)
+	private String email;
+	
+	@NotNull
+	@Size(min = 6, max = 100)
+	private String senha;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("usuario")
-    private List<Postagem> postagem;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<Postagem> postagem;
 
-    
-    public long getId() {
-        return id;
-    }
+	
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public List<Postagem> getPostagem() {
-        return postagem;
-    }
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
 
-    public void setPostagem(List<Postagem> postagem) {
-        this.postagem = postagem;
-    }
-    
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
+	
 	
 	
 }
